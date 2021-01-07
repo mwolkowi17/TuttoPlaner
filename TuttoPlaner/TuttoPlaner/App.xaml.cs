@@ -10,7 +10,7 @@ namespace TuttoPlaner
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MonthList());
         }
 
         protected override void OnStart()
