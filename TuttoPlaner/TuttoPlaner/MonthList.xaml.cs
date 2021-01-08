@@ -34,5 +34,11 @@ namespace TuttoPlaner
 
             monthsList.ItemsSource = months;
         }
+
+        private void monthsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var monthToDisplay = e.SelectedItem as Month;
+            Navigation.PushAsync(new MonthDetails(monthToDisplay));
+        }
     }
 }

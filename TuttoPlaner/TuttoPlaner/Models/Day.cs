@@ -8,7 +8,8 @@ namespace TuttoPlaner.Models
     {
         public int DayId { get; set; }
         public int DayNumber { get; set; }
-        public int DayMonth { get; set; }
+        public Month DayMonth { get; set; }
         public string DayPlans { get; set; }
+
     }
 }

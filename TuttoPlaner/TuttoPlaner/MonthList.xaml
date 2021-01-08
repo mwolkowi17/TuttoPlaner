@@ -9,7 +9,7 @@
         <Label Text="TUTTO Planner" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
     </NavigationPage.TitleView>
     <StackLayout>
-        <ListView x:Name="monthsList" >
+        <ListView x:Name="monthsList" ItemSelected="monthsList_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding MonthName}" TextColor="CadetBlue"/>
