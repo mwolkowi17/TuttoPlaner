@@ -8,5 +8,6 @@ namespace TuttoPlaner.Models
     {
         public int MonthId { get; set; }
         public string MonthName { get; set; }
+        //Dodać poszczególne dni
     }
 }
