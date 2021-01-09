@@ -4,11 +4,11 @@ using System.Text;
 
 namespace TuttoPlaner.Models
 {
-    class Day
+    public class Day
     {
         public int DayId { get; set; }
         public int DayNumber { get; set; }
-        public Month DayMonth { get; set; }
+       
         public string DayPlans { get; set; }
 
     }
