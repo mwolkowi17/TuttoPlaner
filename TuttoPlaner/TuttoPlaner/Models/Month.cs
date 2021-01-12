@@ -11,8 +11,9 @@ namespace TuttoPlaner.Models
         public int MonthId { get; set; }
         public string MonthName { get; set; }
         //Dodać poszczególne dni
-        public Day Day1 { get; set; }
-        public Day Day2 { get; set; }
+        
+        /*public Day Day1 { get; set; }
+        /*public Day Day2 { get; set; }
         public Day Day3 { get; set; }
         public Day Day4 { get; set; }
         public Day Day5 { get; set; }
@@ -41,7 +42,7 @@ namespace TuttoPlaner.Models
         public Day Day28 { get; set; }
         public Day Day29 { get; set; }
         public Day Day30 { get; set; }
-        public Day Day31 { get; set; }
+        public Day Day31 { get; set; }*/
 
     }
 }

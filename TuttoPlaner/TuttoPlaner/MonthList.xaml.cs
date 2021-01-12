@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,41 +15,64 @@ namespace TuttoPlaner
     public partial class MonthList : ContentPage
     {
         private SQLiteAsyncConnection _connection;
+        public ObservableCollection<Month> _listtodisplay;
         public MonthList()
         {
             InitializeComponent();
-           _connection=DependencyService.Get<ISQLiteDb>().GetConnection();
-           
-            var months = new List<Month>
-            {
-                new Month {MonthId=1, MonthName="January" },
-                new Month {MonthId=2, MonthName="February" },
-                new Month {MonthId=1, MonthName="March" },
-                new Month {MonthId=1, MonthName="Aprill" },
-                new Month {MonthId=1, MonthName="May" },
-                new Month {MonthId=1, MonthName="March" },
-                new Month {MonthId=1, MonthName="July" },
-                new Month {MonthId=1, MonthName="August" },
-                new Month {MonthId=1, MonthName="September" },
-                new Month {MonthId=1, MonthName="October" },
-                new Month {MonthId=1, MonthName="November"},
-                new Month {MonthId=1, MonthName="December" }
-            };
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
-            monthsList.ItemsSource = months;
+
+
+
         }
 
         protected override async void OnAppearing()
-        
+
         {
             await _connection.CreateTableAsync<Month>();
-            var testmonth = new Month { MonthName = "January" };
-            await _connection.InsertAsync(testmonth);
-            
+            var testmonth1 = new Month { MonthName = "January" };
+            var testmonth2 = new Month { MonthName = "February" };
+            var testmonth3 = new Month { MonthName = "March" };
+            var testmonth4 = new Month { MonthName = "Aprill" };
+            var testmonth5 = new Month { MonthName = "May" };
+            var testmonth6 = new Month { MonthName = "March" };
+            var testmonth7 = new Month { MonthName = "July" };
+            var testmonth8 = new Month { MonthName = "August" };
+            var testmonth9 = new Month { MonthName = "September" };
+            var testmonth10 = new Month { MonthName = "October" };
+            var testmonth11 = new Month { MonthName = "November" };
+            var testmonth12 = new Month { MonthName = "December" };
+            List<Month> robocza = await _connection.Table<Month>().ToListAsync();
+            if (robocza.Count() == 0)
+            {
+
+
+                await _connection.InsertAsync(testmonth1);
+                await _connection.InsertAsync(testmonth2);
+                await _connection.InsertAsync(testmonth3);
+                await _connection.InsertAsync(testmonth4);
+                await _connection.InsertAsync(testmonth5);
+                await _connection.InsertAsync(testmonth6);
+                await _connection.InsertAsync(testmonth7);
+                await _connection.InsertAsync(testmonth8);
+                await _connection.InsertAsync(testmonth9);
+                await _connection.InsertAsync(testmonth10);
+                await _connection.InsertAsync(testmonth11);
+                await _connection.InsertAsync(testmonth12);
+            }
+            var listtodisplay = await _connection.Table<Month>().ToListAsync();
+            _listtodisplay = new ObservableCollection<Month>(listtodisplay);
+            /*for(int i=0; i <= 10; i++)
+            {
+                await _connection.DeleteAsync(_listtodisplay[i]);
+            }*/
+
+
+            monthsList.ItemsSource = _listtodisplay;
             base.OnAppearing();
         }
 
-        private async void  monthsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void monthsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
