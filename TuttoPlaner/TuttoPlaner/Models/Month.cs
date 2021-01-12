@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,7 @@ namespace TuttoPlaner.Models
 {
     public class Month
     {
+        [PrimaryKey, AutoIncrement]
         public int MonthId { get; set; }
         public string MonthName { get; set; }
         //Dodać poszczególne dni
