@@ -10,8 +10,8 @@ namespace TuttoPlaner.Models
         [PrimaryKey, AutoIncrement]
         public int DayId { get; set; }
         public int DayNumber { get; set; }
-       
         public string DayPlans { get; set; }
+        public string MonthofYear { get; set; }
 
     }
 }
