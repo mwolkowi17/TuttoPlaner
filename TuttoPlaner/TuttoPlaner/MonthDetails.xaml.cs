@@ -37,7 +37,8 @@ namespace TuttoPlaner
             var day1 = new Day() { DayNumber = "1", MonthofYear=monthroboczy };
             var day2 = new Day() { DayNumber = "2", MonthofYear = monthroboczy };
             var day3 = new Day() { DayNumber = "3", MonthofYear = monthroboczy };
-            List<Day> robocza2 = await _connection.Table<Day>().ToListAsync();
+            List<Day> robocza2 = await _connection.Table<Day>().Where(n=>n.MonthofYear==monthroboczy)
+                                                               .ToListAsync();
             if (robocza2.Count() == 0)
             {
                await _connection.InsertAsync(day1);
@@ -46,8 +47,10 @@ namespace TuttoPlaner
             }
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
+            var listOfDaysFiltred = _listofdays.Where(n => n.MonthofYear == monthroboczy)
+                                               .ToList();
             // displaying list should be connected with monath names, (add linq filter)
-            daysList.ItemsSource = _listofdays;
+            daysList.ItemsSource = listOfDaysFiltred;
             base.OnAppearing();
         }
     }
