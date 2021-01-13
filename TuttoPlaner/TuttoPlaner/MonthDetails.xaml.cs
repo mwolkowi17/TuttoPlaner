@@ -74,11 +74,18 @@ namespace TuttoPlaner
                await _connection.InsertAsync(day2);
                await _connection.InsertAsync(day3);
             }*/
+           
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
+
+            /*for (int i = 0; i <= 2; i++)
+            {
+                await _connection.DeleteAsync(_listofdays[i]);
+            }*/
+
             var listOfDaysFiltred = _listofdays.Where(n => n.MonthofYear == monthroboczy)
                                                .ToList();
-            // displaying list should be connected with monath names, (add linq filter)
+           
             daysList.ItemsSource = listOfDaysFiltred;
             base.OnAppearing();
         }
