@@ -122,5 +122,13 @@ namespace TuttoPlaner
             daysList.ItemsSource = listOfDaysFiltred;
             base.OnAppearing();
         }
+
+        private async void daysList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            var dayToDisplay = e.SelectedItem as Day;
+            await Navigation.PushAsync(new DayDetails(dayToDisplay));
+        }
     }
 }

@@ -4,17 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TuttoPlaner.MonthDetails"
-             Title="{Binding MonthName}">
+             x:Class="TuttoPlaner.DayDetails"
+             Title="{Binding DayNumber}">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding DayNumber}" TextColor="CadetBlue"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
