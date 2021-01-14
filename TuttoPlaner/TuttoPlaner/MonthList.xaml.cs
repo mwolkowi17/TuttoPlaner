@@ -35,7 +35,7 @@ namespace TuttoPlaner
             var testmonth3 = new Month { MonthName = "March" };
             var testmonth4 = new Month { MonthName = "Aprill" };
             var testmonth5 = new Month { MonthName = "May" };
-            var testmonth6 = new Month { MonthName = "March" };
+            var testmonth6 = new Month { MonthName = "March" };//do poprawki
             var testmonth7 = new Month { MonthName = "July" };
             var testmonth8 = new Month { MonthName = "August" };
             var testmonth9 = new Month { MonthName = "September" };

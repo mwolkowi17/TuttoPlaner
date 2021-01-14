@@ -102,6 +102,11 @@ namespace TuttoPlaner
                 await _connection.InsertAsync(day29);
                 await _connection.InsertAsync(day30);
             }
+
+            if (robocza2.Count() == 30 && (monthroboczy=="January"||monthroboczy=="March"||monthroboczy== "May"||monthroboczy== "July"||monthroboczy== "August"||monthroboczy== "October"||monthroboczy== "December"))
+            {
+                await _connection.InsertAsync(day31);
+            }
            
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
