@@ -68,12 +68,40 @@ namespace TuttoPlaner
 
             List<Day> robocza2 = await _connection.Table<Day>().Where(n=>n.MonthofYear==monthroboczy)
                                                                .ToListAsync();
-            /*if (robocza2.Count() == 0)
+            if (robocza2.Count() == 0)
             {
                await _connection.InsertAsync(day1);
                await _connection.InsertAsync(day2);
                await _connection.InsertAsync(day3);
-            }*/
+                await _connection.InsertAsync(day4);
+                await _connection.InsertAsync(day5);
+                await _connection.InsertAsync(day6);
+                await _connection.InsertAsync(day7);
+                await _connection.InsertAsync(day8);
+                await _connection.InsertAsync(day9);
+                await _connection.InsertAsync(day10);
+                await _connection.InsertAsync(day11);
+                await _connection.InsertAsync(day12);
+                await _connection.InsertAsync(day13);
+                await _connection.InsertAsync(day14);
+                await _connection.InsertAsync(day15);
+                await _connection.InsertAsync(day16);
+                await _connection.InsertAsync(day17);
+                await _connection.InsertAsync(day18);
+                await _connection.InsertAsync(day19);
+                await _connection.InsertAsync(day20);
+                
+                await _connection.InsertAsync(day21);
+                await _connection.InsertAsync(day22);
+                await _connection.InsertAsync(day23);
+                await _connection.InsertAsync(day24);
+                await _connection.InsertAsync(day25);
+                await _connection.InsertAsync(day26);
+                await _connection.InsertAsync(day27);
+                await _connection.InsertAsync(day28);
+                await _connection.InsertAsync(day29);
+                await _connection.InsertAsync(day30);
+            }
            
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
