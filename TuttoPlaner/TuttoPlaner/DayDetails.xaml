@@ -7,10 +7,14 @@
              x:Class="TuttoPlaner.DayDetails"
              Title="{Binding DayNumber}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="20">
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="{Binding MonthofYear}" FontAttributes="Bold"/>
+                <Label Text="{Binding DayNumber}" FontAttributes="Bold"/>
+            </StackLayout>
+            
+            <Label Text="To do:"/>
+            <Label Text="{Binding DayPlans}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
