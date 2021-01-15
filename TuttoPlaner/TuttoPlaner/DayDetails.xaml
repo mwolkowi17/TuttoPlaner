@@ -14,7 +14,10 @@
             </StackLayout>
             
             <Label Text="To do:"/>
-            <Label Text="{Binding DayPlans}"/>
+            <ScrollView>
+                <Label Text="{Binding DayPlans}"/>
+            </ScrollView>
+            <Button Text="Update your plans:)" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

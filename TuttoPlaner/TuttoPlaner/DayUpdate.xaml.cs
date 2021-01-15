@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,21 +11,27 @@ using Xamarin.Forms.Xaml;
 namespace TuttoPlaner
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DayDetails : ContentPage
+    public partial class DayUpdate : ContentPage
     {
-        public DayDetails(Day day)
+        public SQLiteAsyncConnection _connection;
+        public DayUpdate(Day day)
         {
             if (day == null)
                 throw new ArgumentNullException();
             BindingContext = day;
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
             InitializeComponent();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var menuItem = sender as Button;
-            var dayToUpdate = menuItem.CommandParameter as Day;
-            await Navigation.PushAsync(new DayUpdate(dayToUpdate));
+           var dayplans = sender as Button;
+            var dayToUpdate = dayplans.CommandParameter as Day;
+            dayToUpdate.DayPlans = NoteBody.Text;
+            await _connection.UpdateAsync(dayToUpdate);
+            await Navigation.PopAsync();
+
+
         }
     }
 }
