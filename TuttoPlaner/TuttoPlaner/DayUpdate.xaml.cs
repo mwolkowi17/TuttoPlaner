@@ -29,7 +29,7 @@ namespace TuttoPlaner
             var dayToUpdate = dayplans.CommandParameter as Day;
             dayToUpdate.DayPlans = NoteBody.Text;
             await _connection.UpdateAsync(dayToUpdate);
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
 
 
         }
