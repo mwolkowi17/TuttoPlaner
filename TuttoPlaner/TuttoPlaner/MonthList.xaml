@@ -12,7 +12,7 @@
         <ListView x:Name="monthsList" ItemSelected="monthsList_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding MonthName}" TextColor="CadetBlue"/>
+                    <TextCell Text="{Binding MonthName}" TextColor="CadetBlue" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

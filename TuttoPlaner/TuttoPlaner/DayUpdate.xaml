@@ -9,7 +9,7 @@
         <StackLayout>
             <Label Text="Update your plans:"/>
             <Editor x:Name="NoteBody" Text="{Binding DayPlans}"  VerticalOptions="FillAndExpand"/>
-            <Button Text="Update note" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
+            <Button Text="Save your note" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
