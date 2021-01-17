@@ -8,11 +8,16 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding MonthofYear}" FontAttributes="Bold"/>
+                    <Label Text="{Binding DayNumber}" FontAttributes="Bold"/>
+                </StackLayout>
                 <Label Text="Update your plans:"/>
+
                 <Editor x:Name="NoteBody" Text="{Binding DayPlans}"  VerticalOptions="FillAndExpand"/>
                 <Button Text="Save your note" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
             </StackLayout>
         </ScrollView>
-      
+
     </ContentPage.Content>
 </ContentPage>
