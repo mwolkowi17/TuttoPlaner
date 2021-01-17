@@ -6,10 +6,13 @@
              mc:Ignorable="d"
              x:Class="TuttoPlaner.DayUpdate">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Update your plans:"/>
-            <Editor x:Name="NoteBody" Text="{Binding DayPlans}"  VerticalOptions="FillAndExpand"/>
-            <Button Text="Save your note" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Update your plans:"/>
+                <Editor x:Name="NoteBody" Text="{Binding DayPlans}"  VerticalOptions="FillAndExpand"/>
+                <Button Text="Save your note" Clicked="Button_Clicked" CommandParameter="{Binding .}"/>
+            </StackLayout>
+        </ScrollView>
+      
     </ContentPage.Content>
 </ContentPage>
