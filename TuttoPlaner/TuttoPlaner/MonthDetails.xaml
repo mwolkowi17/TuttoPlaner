@@ -11,8 +11,8 @@
             <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
-                            <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="15" FontAttributes="Bold"/>
+                        <ViewCell>
+                            <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="10" FontAttributes="Bold"/>
                         </ViewCell>
                         <!--<TextCell Text="{Binding DayNumber}" TextColor="CadetBlue"/>-->
                     </DataTemplate>
