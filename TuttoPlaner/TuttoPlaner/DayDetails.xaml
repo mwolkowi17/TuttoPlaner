@@ -5,14 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TuttoPlaner.DayDetails"
-             Title="{Binding DayNumber}">
+              Title="Return to Days List">
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout Orientation="Horizontal" >
                 <Label Text="{Binding MonthofYear}" FontAttributes="Bold"/>
                 <Label Text="{Binding DayNumber}" FontAttributes="Bold"/>
             </StackLayout>
-            
+
             <Label Text="To do:"/>
             <ScrollView>
                 <Label Text="{Binding DayPlans}"/>

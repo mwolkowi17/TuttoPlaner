@@ -5,14 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TuttoPlaner.MonthDetails"
-             Title="{Binding MonthName}">
+             Title="Return to Months List">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
+                        
                         <ViewCell>
-                            <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="10" FontAttributes="Bold"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="10" FontAttributes="Bold"/>
+                                <Label Text="{Binding MonthofYear}" TextColor="CadetBlue" Padding="10"/>
+                            </StackLayout>
+                            
                         </ViewCell>
                         <!--<TextCell Text="{Binding DayNumber}" TextColor="CadetBlue"/>-->
                     </DataTemplate>
