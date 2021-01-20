@@ -4,21 +4,19 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TuttoPlaner.MonthDetails"
-             Title="Return to Months List">
+             x:Class="TuttoPlaner.MonthDetailsPlanned">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Show planned days"/>
-            <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
+            <ListView x:Name="daysListPlanned" ItemSelected="daysList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="10" FontAttributes="Bold"/>
                                 <Label Text="{Binding MonthofYear}" TextColor="CadetBlue" Padding="10"/>
                             </StackLayout>
-                            
+
                         </ViewCell>
                         <!--<TextCell Text="{Binding DayNumber}" TextColor="CadetBlue"/>-->
                     </DataTemplate>
