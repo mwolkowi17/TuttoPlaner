@@ -132,5 +132,16 @@ namespace TuttoPlaner
             var dayToDisplay = e.SelectedItem as Day;
             await Navigation.PushAsync(new DayDetails(dayToDisplay));
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            Month monthData = await _connection.Table<Month>()
+                                               .Where(n=>n.MonthName==monthroboczy)
+                                               
+                                               .FirstAsync();
+            
+                            
+            await Navigation.PushAsync(new MonthDetailsPlanned(monthData));
+        }
     }
 }

@@ -7,7 +7,7 @@
              x:Class="TuttoPlaner.MonthDetailsPlanned">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="daysListPlanned" ItemSelected="daysList_ItemSelected">
+            <ListView x:Name="daysListPlanned" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
 

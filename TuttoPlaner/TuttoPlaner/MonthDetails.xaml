@@ -8,7 +8,7 @@
              Title="Return to Months List">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Show planned days"/>
+            <Button Text="Show planned days" Clicked="Button_Clicked"/>
             <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
