@@ -10,7 +10,10 @@ namespace TuttoPlaner
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MonthList());
+            MainPage = new NavigationPage(new MonthList())
+            {
+                BarBackgroundColor = Color.Orange
+        };
         }
 
         protected override void OnStart()
