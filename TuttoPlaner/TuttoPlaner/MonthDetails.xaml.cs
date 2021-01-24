@@ -17,6 +17,7 @@ namespace TuttoPlaner
         private SQLiteAsyncConnection _connection;
         public ObservableCollection<Day> _listofdays;
         public string monthroboczy;
+        public DateTime dateRobocza;
 
         public MonthDetails(Month month)
         {
@@ -29,8 +30,7 @@ namespace TuttoPlaner
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
-           
-
+            dateRobocza = new DateTime();
         }
 
         protected override async void OnAppearing()
