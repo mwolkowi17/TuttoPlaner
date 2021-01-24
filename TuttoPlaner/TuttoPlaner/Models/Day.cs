@@ -12,6 +12,7 @@ namespace TuttoPlaner.Models
         public string DayNumber { get; set; }
         public string DayPlans { get; set; }
         public string MonthofYear { get; set; }
+        public string DayToDisplay { get; set; }
 
     }
 }

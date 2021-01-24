@@ -9,6 +9,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Show planned days" Clicked="Button_Clicked"/>
+            
             <ListView x:Name="daysList" ItemSelected="daysList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -17,6 +18,7 @@
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding DayNumber}" TextColor="CadetBlue" Padding="10" FontAttributes="Bold"/>
                                 <Label Text="{Binding MonthofYear}" TextColor="CadetBlue" Padding="10"/>
+                                <Label Text="{Binding DayToDisplay }" TextColor="CadetBlue" Padding="10"/>
                             </StackLayout>
                             
                         </ViewCell>

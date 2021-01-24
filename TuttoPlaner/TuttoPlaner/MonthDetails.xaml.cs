@@ -18,6 +18,8 @@ namespace TuttoPlaner
         public ObservableCollection<Day> _listofdays;
         public string monthroboczy;
         public DateTime dateRobocza;
+        public int mothnumber;
+        public int daynumber;
 
         public MonthDetails(Month month)
         {
@@ -25,48 +27,109 @@ namespace TuttoPlaner
                 throw new ArgumentNullException();
             BindingContext = month;
             monthroboczy = month.MonthName;
-
-
+            mothnumber = month.MonthId;
+            daynumber = 1;
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
-            dateRobocza = new DateTime();
+            dateRobocza = new DateTime(2021, mothnumber, daynumber);
         }
 
         protected override async void OnAppearing()
         {
             await _connection.CreateTableAsync<Day>();
-            var day1 = new Day() { DayNumber = "1", MonthofYear=monthroboczy };
-            var day2 = new Day() { DayNumber = "2", MonthofYear = monthroboczy };
-            var day3 = new Day() { DayNumber = "3", MonthofYear = monthroboczy };
-            var day4 = new Day() { DayNumber = "4", MonthofYear = monthroboczy };
-            var day5 = new Day() { DayNumber = "5", MonthofYear = monthroboczy };
-            var day6 = new Day() { DayNumber = "6", MonthofYear = monthroboczy };
-            var day7 = new Day() { DayNumber = "7", MonthofYear = monthroboczy };
-            var day8 = new Day() { DayNumber = "8", MonthofYear = monthroboczy };
-            var day9 = new Day() { DayNumber = "9", MonthofYear = monthroboczy };
-            var day10 = new Day() { DayNumber = "10", MonthofYear = monthroboczy };
-            var day11 = new Day() { DayNumber = "11", MonthofYear = monthroboczy };
-            var day12 = new Day() { DayNumber = "12", MonthofYear = monthroboczy };
-            var day13 = new Day() { DayNumber = "13", MonthofYear = monthroboczy };
-            var day14 = new Day() { DayNumber = "14", MonthofYear = monthroboczy };
-            var day15 = new Day() { DayNumber = "15", MonthofYear = monthroboczy };
-            var day16 = new Day() { DayNumber = "16", MonthofYear = monthroboczy };
-            var day17 = new Day() { DayNumber = "17", MonthofYear = monthroboczy };
-            var day18 = new Day() { DayNumber = "18", MonthofYear = monthroboczy };
-            var day19 = new Day() { DayNumber = "19", MonthofYear = monthroboczy };
-            var day20 = new Day() { DayNumber = "20", MonthofYear = monthroboczy };
-            var day21 = new Day() { DayNumber = "21", MonthofYear = monthroboczy };
-            var day22 = new Day() { DayNumber = "22", MonthofYear = monthroboczy };
-            var day23 = new Day() { DayNumber = "23", MonthofYear = monthroboczy };
-            var day24 = new Day() { DayNumber = "24", MonthofYear = monthroboczy };
-            var day25 = new Day() { DayNumber = "25", MonthofYear = monthroboczy };
-            var day26 = new Day() { DayNumber = "26", MonthofYear = monthroboczy };
-            var day27 = new Day() { DayNumber = "27", MonthofYear = monthroboczy };
-            var day28 = new Day() { DayNumber = "28", MonthofYear = monthroboczy };
-            var day29 = new Day() { DayNumber = "29", MonthofYear = monthroboczy };
-            var day30 = new Day() { DayNumber = "30", MonthofYear = monthroboczy };
-            var day31 = new Day() { DayNumber = "31", MonthofYear = monthroboczy };
+            var day1 = new Day() { DayNumber = "1", MonthofYear=monthroboczy , DayToDisplay=dateRobocza.Date.DayOfWeek.ToString()};
+            daynumber = 2;
+            var dateRobocza2 = new DateTime(2021, mothnumber, daynumber);
+            var day2 = new Day() { DayNumber = "2", MonthofYear = monthroboczy, DayToDisplay = dateRobocza2.Date.DayOfWeek.ToString() };
+            daynumber = 3;
+            var dateRobocza3 = new DateTime(2021, mothnumber, daynumber);
+            dateRobocza = new DateTime(2021, mothnumber, daynumber);
+            var day3 = new Day() { DayNumber = "3", MonthofYear = monthroboczy, DayToDisplay = dateRobocza3.Date.DayOfWeek.ToString() };
+            daynumber = 4;
+            var dateRobocza4 = new DateTime(2021, mothnumber, daynumber);
+            var day4 = new Day() { DayNumber = "4", MonthofYear = monthroboczy, DayToDisplay = dateRobocza4.Date.DayOfWeek.ToString() };
+            daynumber = 5;
+            var dateRobocza5 = new DateTime(2021, mothnumber, daynumber);
+            var day5 = new Day() { DayNumber = "5", MonthofYear = monthroboczy, DayToDisplay = dateRobocza5.Date.DayOfWeek.ToString() };
+            daynumber = 6;
+            var dateRobocza6 = new DateTime(2021, mothnumber, daynumber);
+            var day6 = new Day() { DayNumber = "6", MonthofYear = monthroboczy, DayToDisplay = dateRobocza6.Date.DayOfWeek.ToString() };
+            daynumber = 7;
+            var dateRobocza7 = new DateTime(2021, mothnumber, daynumber);
+            var day7 = new Day() { DayNumber = "7", MonthofYear = monthroboczy, DayToDisplay = dateRobocza7.Date.DayOfWeek.ToString() };
+            daynumber = 8;
+            var dateRobocza8 = new DateTime(2021, mothnumber, daynumber);
+            var day8 = new Day() { DayNumber = "8", MonthofYear = monthroboczy, DayToDisplay = dateRobocza8.Date.DayOfWeek.ToString() };
+            daynumber = 9;
+            var dateRobocza9 = new DateTime(2021, mothnumber, daynumber);
+            var day9 = new Day() { DayNumber = "9", MonthofYear = monthroboczy, DayToDisplay = dateRobocza9.Date.DayOfWeek.ToString() };
+            daynumber = 10;
+            var dateRobocza10 = new DateTime(2021, mothnumber, daynumber);
+            var day10 = new Day() { DayNumber = "10", MonthofYear = monthroboczy, DayToDisplay = dateRobocza10.Date.DayOfWeek.ToString() };
+            daynumber = 11;
+            var dateRobocza11 = new DateTime(2021, mothnumber, daynumber);
+            var day11 = new Day() { DayNumber = "11", MonthofYear = monthroboczy, DayToDisplay = dateRobocza11.Date.DayOfWeek.ToString() };
+            daynumber = 12;
+            var dateRobocza12 = new DateTime(2021, mothnumber, daynumber);
+            var day12 = new Day() { DayNumber = "12", MonthofYear = monthroboczy, DayToDisplay = dateRobocza12.Date.DayOfWeek.ToString() };
+            daynumber = 13;
+            var dateRobocza13 = new DateTime(2021, mothnumber, daynumber);
+            var day13 = new Day() { DayNumber = "13", MonthofYear = monthroboczy, DayToDisplay = dateRobocza13.Date.DayOfWeek.ToString() };
+            daynumber = 14;
+            var dateRobocza14 = new DateTime(2021, mothnumber, daynumber);
+            var day14 = new Day() { DayNumber = "14", MonthofYear = monthroboczy, DayToDisplay = dateRobocza14.Date.DayOfWeek.ToString() };
+            daynumber = 15;
+            var dateRobocza15 = new DateTime(2021, mothnumber, daynumber);
+            var day15 = new Day() { DayNumber = "15", MonthofYear = monthroboczy, DayToDisplay = dateRobocza15.Date.DayOfWeek.ToString() };
+            daynumber = 16;
+            var dateRobocza16 = new DateTime(2021, mothnumber, daynumber);
+            var day16 = new Day() { DayNumber = "16", MonthofYear = monthroboczy, DayToDisplay = dateRobocza16.Date.DayOfWeek.ToString() };
+            daynumber = 17;
+            var dateRobocza17 = new DateTime(2021, mothnumber, daynumber);
+            var day17 = new Day() { DayNumber = "17", MonthofYear = monthroboczy, DayToDisplay = dateRobocza17.Date.DayOfWeek.ToString() };
+            daynumber = 18;
+            var dateRobocza18 = new DateTime(2021, mothnumber, daynumber);
+            var day18 = new Day() { DayNumber = "18", MonthofYear = monthroboczy, DayToDisplay = dateRobocza18.Date.DayOfWeek.ToString() };
+            daynumber = 19;
+            var dateRobocza19 = new DateTime(2021, mothnumber, daynumber);
+            var day19 = new Day() { DayNumber = "19", MonthofYear = monthroboczy, DayToDisplay = dateRobocza19.Date.DayOfWeek.ToString() };
+            daynumber = 20;
+            var dateRobocza20 = new DateTime(2021, mothnumber, daynumber);
+            var day20 = new Day() { DayNumber = "20", MonthofYear = monthroboczy, DayToDisplay = dateRobocza20.Date.DayOfWeek.ToString() };
+            daynumber = 21;
+            var dateRobocza21 = new DateTime(2021, mothnumber, daynumber);
+            var day21 = new Day() { DayNumber = "21", MonthofYear = monthroboczy, DayToDisplay = dateRobocza21.Date.DayOfWeek.ToString() };
+            daynumber = 22;
+            var dateRobocza22 = new DateTime(2021, mothnumber, daynumber);
+            var day22 = new Day() { DayNumber = "22", MonthofYear = monthroboczy, DayToDisplay = dateRobocza22.Date.DayOfWeek.ToString() };
+            daynumber = 23;
+            var dateRobocza23 = new DateTime(2021, mothnumber, daynumber);
+            var day23 = new Day() { DayNumber = "23", MonthofYear = monthroboczy, DayToDisplay = dateRobocza23.Date.DayOfWeek.ToString() };
+            daynumber = 24;
+            var dateRobocza24 = new DateTime(2021, mothnumber, daynumber);
+            var day24 = new Day() { DayNumber = "24", MonthofYear = monthroboczy, DayToDisplay = dateRobocza24.Date.DayOfWeek.ToString() };
+            daynumber = 25;
+            var dateRobocza25 = new DateTime(2021, mothnumber, daynumber);
+            var day25 = new Day() { DayNumber = "25", MonthofYear = monthroboczy, DayToDisplay = dateRobocza25.Date.DayOfWeek.ToString() };
+            daynumber = 26;
+            var dateRobocza26 = new DateTime(2021, mothnumber, daynumber);
+            var day26 = new Day() { DayNumber = "26", MonthofYear = monthroboczy, DayToDisplay = dateRobocza26.Date.DayOfWeek.ToString() };
+            daynumber = 27;
+            var dateRobocza27 = new DateTime(2021, mothnumber, daynumber);
+            var day27 = new Day() { DayNumber = "27", MonthofYear = monthroboczy, DayToDisplay = dateRobocza27.Date.DayOfWeek.ToString() };
+            daynumber = 28;
+            var dateRobocza28 = new DateTime(2021, mothnumber, daynumber);
+            var day28 = new Day() { DayNumber = "28", MonthofYear = monthroboczy, DayToDisplay = dateRobocza28.Date.DayOfWeek.ToString() };
+            daynumber = 29;
+            var dateRobocza29 = new DateTime(2021, mothnumber, daynumber);
+            var day29 = new Day() { DayNumber = "29", MonthofYear = monthroboczy, DayToDisplay = dateRobocza29.Date.DayOfWeek.ToString() };
+            daynumber = 30;
+            var dateRobocza30 = new DateTime(2021, mothnumber, daynumber);
+            var day30 = new Day() { DayNumber = "30", MonthofYear = monthroboczy, DayToDisplay = dateRobocza30.Date.DayOfWeek.ToString() };
+            daynumber = 31;
+            var dateRobocza31 = new DateTime(2021, mothnumber, daynumber);
+            var day31 = new Day() { DayNumber = "31", MonthofYear = monthroboczy, DayToDisplay = dateRobocza31.Date.DayOfWeek.ToString() };
 
             List<Day> robocza2 = await _connection.Table<Day>().Where(n=>n.MonthofYear==monthroboczy)
                                                                .ToListAsync();
@@ -120,8 +183,11 @@ namespace TuttoPlaner
 
             var listOfDaysFiltred = _listofdays.Where(n => n.MonthofYear == monthroboczy)
                                                .ToList();
-           
+            
+            
             daysList.ItemsSource = listOfDaysFiltred;
+            
+            
             base.OnAppearing();
         }
 
