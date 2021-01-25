@@ -44,7 +44,7 @@ namespace TuttoPlaner
             var day2 = new Day() { DayNumber = "2", MonthofYear = monthroboczy, DayToDisplay = dateRobocza2.Date.DayOfWeek.ToString() };
             daynumber = 3;
             var dateRobocza3 = new DateTime(2021, mothnumber, daynumber);
-            dateRobocza = new DateTime(2021, mothnumber, daynumber);
+           // dateRobocza = new DateTime(2021, mothnumber, daynumber);
             var day3 = new Day() { DayNumber = "3", MonthofYear = monthroboczy, DayToDisplay = dateRobocza3.Date.DayOfWeek.ToString() };
             daynumber = 4;
             var dateRobocza4 = new DateTime(2021, mothnumber, daynumber);
@@ -121,16 +121,9 @@ namespace TuttoPlaner
             daynumber = 28;
             var dateRobocza28 = new DateTime(2021, mothnumber, daynumber);
             var day28 = new Day() { DayNumber = "28", MonthofYear = monthroboczy, DayToDisplay = dateRobocza28.Date.DayOfWeek.ToString() };
-            daynumber = 29;
-            var dateRobocza29 = new DateTime(2021, mothnumber, daynumber);
-            var day29 = new Day() { DayNumber = "29", MonthofYear = monthroboczy, DayToDisplay = dateRobocza29.Date.DayOfWeek.ToString() };
-            daynumber = 30;
-            var dateRobocza30 = new DateTime(2021, mothnumber, daynumber);
-            var day30 = new Day() { DayNumber = "30", MonthofYear = monthroboczy, DayToDisplay = dateRobocza30.Date.DayOfWeek.ToString() };
-            daynumber = 31;
-            var dateRobocza31 = new DateTime(2021, mothnumber, daynumber);
-            var day31 = new Day() { DayNumber = "31", MonthofYear = monthroboczy, DayToDisplay = dateRobocza31.Date.DayOfWeek.ToString() };
 
+            // tu trzeba dać jakieś ograniczenie dla lutego 28 dni i mieśiecy które mają 30 dni 
+          
             List<Day> robocza2 = await _connection.Table<Day>().Where(n=>n.MonthofYear==monthroboczy)
                                                                .ToListAsync();
             if (robocza2.Count() == 0)
@@ -164,14 +157,34 @@ namespace TuttoPlaner
                 await _connection.InsertAsync(day26);
                 await _connection.InsertAsync(day27);
                 await _connection.InsertAsync(day28);
-                await _connection.InsertAsync(day29);
-                await _connection.InsertAsync(day30);
+               
+               
+            }
+            if (mothnumber == 1 || mothnumber == 3 || mothnumber == 5 || mothnumber == 7 || mothnumber == 8 || mothnumber == 10 || mothnumber == 12)
+            {
+
+
+                daynumber = 29;
+                var dateRobocza29 = new DateTime(2021, mothnumber, daynumber);
+                var day29 = new Day() { DayNumber = "29", MonthofYear = monthroboczy, DayToDisplay = dateRobocza29.Date.DayOfWeek.ToString() };
+                daynumber = 30;
+                var dateRobocza30 = new DateTime(2021, mothnumber, daynumber);
+                var day30 = new Day() { DayNumber = "30", MonthofYear = monthroboczy, DayToDisplay = dateRobocza30.Date.DayOfWeek.ToString() };
+                daynumber = 31;
+                var dateRobocza31 = new DateTime(2021, mothnumber, daynumber);
+                var day31 = new Day() { DayNumber = "31", MonthofYear = monthroboczy, DayToDisplay = dateRobocza31.Date.DayOfWeek.ToString() };
+                if (monthroboczy != "February")
+                {
+                    await _connection.InsertAsync(day29);
+                    await _connection.InsertAsync(day30);
+                }
+                if (robocza2.Count() == 30 && (monthroboczy == "January" || monthroboczy == "March" || monthroboczy == "May" || monthroboczy == "July" || monthroboczy == "August" || monthroboczy == "October" || monthroboczy == "December"))
+                {
+                    await _connection.InsertAsync(day31);
+                }
             }
 
-            if (robocza2.Count() == 30 && (monthroboczy=="January"||monthroboczy=="March"||monthroboczy== "May"||monthroboczy== "July"||monthroboczy== "August"||monthroboczy== "October"||monthroboczy== "December"))
-            {
-                await _connection.InsertAsync(day31);
-            }
+          
            
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
