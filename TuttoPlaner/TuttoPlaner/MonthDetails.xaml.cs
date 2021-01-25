@@ -184,8 +184,27 @@ namespace TuttoPlaner
                 }
             }
 
-          
-           
+            if (mothnumber == 4 || mothnumber == 6 || mothnumber == 9 || mothnumber == 11 )
+            {
+
+
+                daynumber = 29;
+                var dateRobocza29 = new DateTime(2021, mothnumber, daynumber);
+                var day29 = new Day() { DayNumber = "29", MonthofYear = monthroboczy, DayToDisplay = dateRobocza29.Date.DayOfWeek.ToString() };
+                daynumber = 30;
+                var dateRobocza30 = new DateTime(2021, mothnumber, daynumber);
+                var day30 = new Day() { DayNumber = "30", MonthofYear = monthroboczy, DayToDisplay = dateRobocza30.Date.DayOfWeek.ToString() };
+              
+                if (monthroboczy != "February")
+                {
+                    await _connection.InsertAsync(day29);
+                    await _connection.InsertAsync(day30);
+                }
+               
+            }
+
+
+
             var listtodisplay = await _connection.Table<Day>().ToListAsync();
             _listofdays = new ObservableCollection<Day>(listtodisplay);
 
